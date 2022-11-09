@@ -71,10 +71,10 @@ auto potision += offset * delta;
 ```
 
 ### sf::Rectの機能追加/変更
-`sf::Rect`には、そのそれぞれの角（コーナー）を抽出するメンバ関数が追加される。
+`sf::Rect`には始点とサイズを`sf::Vector2`として抽出するメンバ関数が追加される。
 
 - { left, top }を返す`getPosition()`
-- { (left + width), (top + height) }を返す`getSize()`
+- { width, height }を返す`getSize()`
 
 また、交差判定が刷新される。`intersects()`は`findIntersection()`となる。以前は交差部分を扱うかどうかでオーバーロードを提供していたが、1つのメンバ関数に集約される。戻り値が`bool`から`std::optional<sf::Rect<T>>`に変更され、交差部分があればそれを有効値として返すようになった。
 ```cpp
