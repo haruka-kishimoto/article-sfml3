@@ -16,7 +16,8 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 - [\#1484](https://github.com/SFML/SFML/pull/1484), OpenGLコンテキストなしでのウィンドウ作成
     - イベント処理をSFMLに任せつつレンダリングAPIをDirectX/Direct3D/Vulkan/Metal等からユーザが自由に選べる。
     - GLFWやSDLのSFMLに対するアドバンテージであった部分に対応したもの。
-- [\#1394](https://github.com/SFML/SFML/pull/1394), sf::VertexBufferを用いたパフォーマンスと設計の改善
+- [\#1394](https://github.com/SFML/SFML/pull/1394), sf::VertexBufferを用いた設計の改善
+    - SFMLエンティティ内部での頂点バッファサポート。
 
 SFML 3ではこれらの変更を含みつつ、より基本的な部分の改善が充実している。その多くはこれまでSFMLユーザが大抵独自に用意していたであろうものであり、その実装とテスト、他のライブラリで補完する手間が省け、SFMLを採用する異なるプロジェクト間でのコードベースの一貫性の向上が期待できる。
 
