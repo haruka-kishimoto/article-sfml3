@@ -1,7 +1,7 @@
 
 # SFML 3の新機能/API変更点
 
-最終更新日時: 2022年11月09日 09時01分
+最終更新日時: 202年01月14日 15時54分
 
 この記事ではSFMLの次期メジャーバージョンであるSFML 3について、その新機能とマイナーバージョン（2.5系/2.6系）からのAPI変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRのうち、ラベルがlabel:featureかつlabel:s:acceptedであるものに基づいている。
 
@@ -157,6 +157,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ### [\#2016](https://github.com/SFML/SFML/pull/2016)
 `sf::Font`, `sf::Text`, `sf::Image`, `sf::String`がムーブに対応。
+
+### [\#2329](https://github.com/SFML/SFML/pull/2329)
+sf::InputSoundFile/sf::OutputSoundFileがムーブに対応
 
 
 ## 内部的な変更のリスト（一部）
