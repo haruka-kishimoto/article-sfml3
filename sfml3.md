@@ -1,7 +1,7 @@
 
 # SFML 3の新機能/API変更点
 
-最終更新日時: 202年01月14日 15時54分
+最終更新日時: 2023年02月28日 22時46分
 
 この記事ではSFMLの次期メジャーバージョンであるSFML 3について、その新機能とマイナーバージョン（2.5系/2.6系）からのAPI変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRのうち、ラベルがlabel:featureかつlabel:s:acceptedであるものに基づいている。
 
@@ -84,6 +84,12 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 
 ## 新機能/API変更点のリスト
+
+### [\#2417](https://github.com/SFML/SFML/pull/2417)
+ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
+
+### [\#2386](https://github.com/SFML/SFML/pull/2386)
+引数の型を`const char*`から`std::string_view`に変更。
 
 ### [\#2137](https://github.com/SFML/SFML/pull/2137)
 `sf::Image::copy()`の戻り値を`void`から`bool`に変更。成否を表し、`[[nodiscard]]`属性付き。
