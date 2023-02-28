@@ -172,6 +172,16 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2386](https://github.com/SFML/SFML/pull/2386)
 引数の型を`const char*`から`std::string_view`に変更。
 
+### [\#2332](https://github.com/SFML/SFML/pull/2332)
+一時オブジェクトな`sf::Font`での`sf::Text`構築を防止する。
+
+右辺値参照（`sf::Font&&`）を引数に取るオーバーロードを`= delete`指定する。
+
+### [\#2315](https://github.com/SFML/SFML/pull/2315)
+クランプ（値を範囲内に収める）処理を`std::clamp()`に置き換える。
+
+値のクランプは`std::min(std::max(v, lo), hi)/`というイディオムがあるが、それを`std::clamp()`に置き換える。
+
 ### [\#2192](https://github.com/SFML/SFML/pull/2192), [\#2196](https://github.com/SFML/SFML/pull/2196), [\#2199](https://github.com/SFML/SFML/pull/2199), [\#2200](https://github.com/SFML/SFML/pull/2200)
 SFML独自の古い固定長整数型のエイリアスをC++標準に置き換える（`sf::Int8`等を`std::int8_t`へ等）。
 
