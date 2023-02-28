@@ -88,9 +88,6 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
 
-### [\#2386](https://github.com/SFML/SFML/pull/2386)
-引数の型を`const char*`から`std::string_view`に変更。
-
 ### [\#2137](https://github.com/SFML/SFML/pull/2137)
 `sf::Image::copy()`の戻り値を`void`から`bool`に変更。成否を表し、`[[nodiscard]]`属性付き。
 
@@ -171,6 +168,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ## 内部的な変更のリスト（一部）
 
 以下の変更以外にも、C++17を用いたプロジェクトにおける当然のモダナイズ（range-based forやstructured bindings等々）が数多くあり、そのいずれも着実に取り込まれている。
+
+### [\#2386](https://github.com/SFML/SFML/pull/2386)
+引数の型を`const char*`から`std::string_view`に変更。
 
 ### [\#2192](https://github.com/SFML/SFML/pull/2192), [\#2196](https://github.com/SFML/SFML/pull/2196), [\#2199](https://github.com/SFML/SFML/pull/2199), [\#2200](https://github.com/SFML/SFML/pull/2200)
 SFML独自の古い固定長整数型のエイリアスをC++標準に置き換える（`sf::Int8`等を`std::int8_t`へ等）。
