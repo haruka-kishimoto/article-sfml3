@@ -167,7 +167,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2315](https://github.com/SFML/SFML/pull/2315)
 クランプ（値を範囲内に収める）処理を`std::clamp()`に置き換える。
 
-値のクランプは`std::min(std::max(v, lo), hi)/`というイディオムがあるが、それを`std::clamp()`に置き換える。
+値のクランプは`std::min(std::max(v, lo), hi)`というイディオムがあるが、それを`std::clamp()`に置き換える。
 
 ### [\#2192](https://github.com/SFML/SFML/pull/2192), [\#2196](https://github.com/SFML/SFML/pull/2196), [\#2199](https://github.com/SFML/SFML/pull/2199), [\#2200](https://github.com/SFML/SFML/pull/2200)
 SFML独自の古い固定長整数型のエイリアスをC++標準に置き換える（`sf::Int8`等を`std::int8_t`へ等）。
