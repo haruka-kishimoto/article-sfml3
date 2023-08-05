@@ -1,8 +1,6 @@
 
 # SFML 3の新機能/API変更点
 
-最終更新日時: 2023年02月28日 23時17分
-
 この記事ではSFMLの次期メジャーバージョンであるSFML 3について、その新機能とバージョン2.5系/2.6系からのAPI変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRのうち、ラベルがlabel:featureかつlabel:s:acceptedであるものに基づいている。
 
 ## SFML 3
