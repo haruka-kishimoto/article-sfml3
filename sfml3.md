@@ -1,5 +1,5 @@
 
-# SFML 3の新機能/変更点
+# SFML 3の新機能/SFML 2系からの変更点
 
 この記事ではSFMLの次期メジャーバージョンであるSFML 3について、その新機能とバージョン2.5系/2.6系からの変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRに基づいている。
 
@@ -66,7 +66,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ```
 
 
-## 新機能/変更点のリスト
+## SFML 3の新機能/SFML 2系からの変更点のリスト
 
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
