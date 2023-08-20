@@ -1,5 +1,5 @@
 
-# SFML 3の新機能/API変更点
+# SFML 3の新機能/SFML 2系からの変更点
 
 本文: [sfml3.md](https://github.com/haruka-kishimoto/article-sfml3/blob/main/sfml3.md)
 
