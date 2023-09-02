@@ -66,6 +66,30 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ```
 
 
+### 正規化テクスチャ座標
+
+RenderStatesでテクスチャ座標を正規化された値として扱うように指定できるようになる。
+
+初心者にとってはピクセル座標のほうがテクスチャ画像のどの部分が表示されるのかの対応を理解しやすいものの、一般的には正規化されたテクスチャ座標を扱うことが多い。この変更によりそのようなデータをピクセル座標へ変換する手間なく直接扱えるようになる。
+
+これはVertexArrayとVertexBufferの描画に限られ、その他のDrawableは引き続きピクセル座標をデフォルトとして使う（ピクセル座標をデフォルトとする議論は[\#1773](https://github.com/SFML/SFML/issues/1773)を参照）。
+
+`target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションかsf::err()で対応する方法もあるが、既にそれらによる警告なしにsf::Shape/sf::Sprite/sf::Textにおいてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
+
+
+### sf::VertexArrayの再設計検討
+
+`sf::VertexArray`は`std::vector<sf::Vertex>`と`sf::PrimitiveType`のシンプルなラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
+
+そのほかの方法も議論されたが、今のところ具体的な進展はないようだ。
+
+構造体とした場合の変更点は[こちら](https://github.com/SFML/SFML/compare/master...ChrisThrasher:SFML:vertex_array)にまとまっている。
+
+`reserve()`を追加する提案: https://github.com/SFML/SFML/issues/2208
+
+再設計の議論: https://github.com/SFML/SFML/pull/2587
+
+
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
 
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
