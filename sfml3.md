@@ -101,8 +101,6 @@ RenderStatesでテクスチャ座標を正規化された値として扱うよ�
 ### [\#2131](https://github.com/SFML/SFML/pull/2131)
 ネットワーク周りの`enum`を`enum class`に変更。
 
-具体的には`sf::Ftp::TransferMode`, `sf::Http::Responce::Status`, `sf::Http::Request::Method`, `sf::Sockte::Status`, `sf::Socket::Type`。
-
 ### [\#2086](https://github.com/SFML/SFML/pull/2086) 
 `sf::Vector3<T>`にメンバ関数を追加。
 
