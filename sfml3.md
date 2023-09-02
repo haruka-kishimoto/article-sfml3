@@ -81,7 +81,7 @@ RenderStatesでテクスチャ座標を正規化された値として扱うよ�
 
 `sf::VertexArray`は`std::vector<sf::Vertex>`と`sf::PrimitiveType`のシンプルなラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
 
-そのほかの方法も議論されたが、今のところ具体的な進展はないようだ。
+その他の方法も議論されたが、今のところ具体的な進展はないようだ。
 
 構造体とした場合の変更点は[こちら](https://github.com/SFML/SFML/compare/master...ChrisThrasher:SFML:vertex_array)にまとまっている。
 
