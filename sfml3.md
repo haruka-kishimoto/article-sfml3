@@ -60,7 +60,7 @@ auto potision += offset * delta;
 ```cpp
 // 戻り値を使う例（当然discardableなので使わなくてもよい）。
 if (auto intersection = rect.findIntersection(other_rect); intersection) {
-    const auto& interssection_rect = intersection.value();
+    const auto& interssection_rect = *intersection;
     ...
 }
 ```
