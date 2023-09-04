@@ -52,7 +52,7 @@ sf::Vector2f offset{ speed, sf::degrees(-20.f) };
 
 // キャラクタ等の現在位置を更新する。
 // deltaはゲームループの経過時間（単位はSpeedPerSecondと合わせて秒とする）。
-auto potision += offset * delta;
+auto potision += (offset * delta);
 ```
 
 ### sf::Rectの交差判定刷新
