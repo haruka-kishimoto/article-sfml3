@@ -62,7 +62,7 @@ auto potision += offset * delta;
 if (auto intersection = rect.findIntersection(other_rect); intersection) {
     const auto& interssection_rect = intersection.value();
     ...
- }
+}
 ```
 
 
