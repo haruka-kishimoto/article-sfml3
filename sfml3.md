@@ -13,7 +13,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 `sf::Vector`に数学的機能が追加される。`sf::Vector3<T>`にはドット積やクロス積、長さ、正規化、コンポーネント単位での乗除算が、`sf::Vector2<T>`にはそれらに加えて**角度**を扱う機能が複数サポートされる。
 
 ### sf::Angleの追加およびsf::Vector2fとの併用
-角度を扱う新しいクラスとして`sf::Angle`が追加される。デフォルト構築および度/ラジアンからの構築とそれぞれの値への変換、算術演算、ユーザ定義リテラル（_deg/_rad）をサポートする。
+角度を扱う新しいクラスとして`sf::Angle`が追加される。デフォルト構築および度/ラジアンからの構築とそれぞれの値への変換、算術演算、ユーザ定義リテラル（`_deg`/`_rad`）をサポートする。
 
 ```cpp
 using namespace sf::Literals;
@@ -35,9 +35,9 @@ angle = sf::radians(radians);
 他に以下のメンバ関数を持つ。
 
 - [-180°, 180°)に制限した値を返す`wrapSigned()`
-    - 例えばsf::degrees(360.f).wrapSigned()の戻り値はsf::degrees(0)と等しい。
+    - 例えば`sf::degrees(360.f).wrapSigned()`の戻り値は`sf::degrees(0)`と等しい。
 - [0°, 360°)に制限した値を返す`wrapUnsigned()`
-    - 例えばsf::degrees(-90).wrapUnsigned()の戻り値はsf::degrees(270)と等しい。
+    - 例えば`sf::degrees(-90).wrapUnsigned()`の戻り値は`sf::degrees(270)`と等しい。
 
 `sf::Vector2f`との併用。
 
@@ -68,13 +68,13 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ### 正規化テクスチャ座標
 
-RenderStatesでテクスチャ座標を正規化された値として扱うように指定できるようになる。
+`sf::RenderStates`でテクスチャ座標を正規化された値として扱うように指定できるようになる。
 
 初心者にとってはピクセル座標のほうがテクスチャ画像のどの部分が表示されるのかの対応を理解しやすいものの、一般的には正規化されたテクスチャ座標を扱うことが多い。この変更によりそのようなデータをピクセル座標へ変換する手間なく直接扱えるようになる。
 
-これはVertexArrayとVertexBufferの描画に限られ、その他のDrawableは引き続きピクセル座標をデフォルトとして使う（ピクセル座標をデフォルトとする議論は[\#1773](https://github.com/SFML/SFML/issues/1773)を参照）。
+これは`sf::VertexArray`と`sf::VertexBuffer`の描画に限られ、その他のDrawableは引き続きピクセル座標をデフォルトとして使う（ピクセル座標をデフォルトとする議論は[\#1773](https://github.com/SFML/SFML/issues/1773)を参照）。
 
-`target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションかsf::err()で対応する方法もあるが、既にそれらによる警告なしにsf::Shape/sf::Sprite/sf::Textにおいてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
+`target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションか`sf::err()`で対応する方法もあるが、既にそれらによる警告なしに`sf::Shape/sf::Sprite/sf::Text`においてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
 
 
 ### sf::VertexArrayの再設計検討
