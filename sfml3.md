@@ -92,6 +92,20 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
 
+### [\#2850](https://github.com/SFML/SFML/pull/2850)
+`sf::Keyboard::key`を`enum`から`enum class`に変更。
+
+### [\#2822](https://github.com/SFML/SFML/pull/2822)
+`sf::Mouse::Button`/`sf::Mouse::Wheel`/`sf::Joystick::Axis`/`sf::Seonsor::Type`/`sf::Cursor::Type`を`enum`から`enum class`に変更。
+
+以下については同様の変更の対象外:
+- `sf::Keyboard`については[\#2850](https://github.com/SFML/SFML/pull/2850)に分割されている。
+- `sf::Style`と`sf::ContextSettings::Attribute`についてはフラグを表すものとして含まない。
+- `sf::Event::EventType`については[\#2766](https://github.com/SFML/SFML/pull/2766)でイベントAPIの改善が予定されているため含まない。
+
+### [\#2766](https://github.com/SFML/SFML/pull/2766)
+`sf::Event`のAPIを改善。[\#2668](https://github.com/SFML/SFML/issues/2668)での議論を経て`std::variant`を使用して実装。
+
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
 
