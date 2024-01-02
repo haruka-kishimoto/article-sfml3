@@ -95,6 +95,11 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2850](https://github.com/SFML/SFML/pull/2850)
 `sf::Keyboard::key`を`enum`から`enum class`に変更。
 
+### [\#2838](https://github.com/SFML/SFML/pull/2838)
+`sf::Mouse::XButton1`/`sf::Button::XButton2`を`sf::Mouse::Extra1`/`sf::Mouse::Extra2`に変更。
+
+[\#2822](https://github.com/SFML/SFML/pull/2822)によって"Button"が繰り返されることになり冗長であることと、より意味のある名前にするために変更される。
+
 ### [\#2822](https://github.com/SFML/SFML/pull/2822)
 `sf::Mouse::Button`/`sf::Mouse::Wheel`/`sf::Joystick::Axis`/`sf::Seonsor::Type`/`sf::Cursor::Type`を`enum`から`enum class`に変更。
 
