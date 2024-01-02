@@ -111,6 +111,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2766](https://github.com/SFML/SFML/pull/2766)
 `sf::Event`のAPIを改善。[\#2668](https://github.com/SFML/SFML/issues/2668)での議論を経て`std::variant`を使用して実装。
 
+### [\#2756](https://github.com/SFML/SFML/pull/2756)
+これまで`sf::Image::saveToMemory()`はバッファを引数に取り、そのバッファに内容を格納できたかを`bool`で返していた。この変更ではバッファを受け取る引数を削除し、結果を`std::optional`で返すようにする。
+
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
 
