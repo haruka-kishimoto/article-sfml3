@@ -189,7 +189,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 `sf::Font`, `sf::Text`, `sf::Image`, `sf::String`がムーブに対応。
 
 ### [\#2329](https://github.com/SFML/SFML/pull/2329)
-`sf::InputSoundFile/sf::OutputSoundFile`がムーブに対応。
+`sf::InputSoundFile`/`sf::OutputSoundFile`がムーブに対応。
 
 
 ## 内部的な変更のリスト（一部）
