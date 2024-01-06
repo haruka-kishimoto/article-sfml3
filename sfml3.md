@@ -79,15 +79,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ## 見送られた提案
 
-### sf::VertexArrayの再設計検討
+### sf::VertexArrayの機能追加/再設計
 
-`sf::VertexArray`は`sf::Drawable`の派生クラスで、その点を除いてしまえば構造的には`std::vector<sf::Vertex>`と`sf::PrimitiveType`のラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
-
-~~その他の方法も議論されたが、今のところ具体的な進展はないようだ。~~
-
-2024年01月追記: `sf::Drawable`インタフェイスに基づく設計原則から現状維持となったようだ。
-
-~~構造体とした場合の変更点は[こちら](https://github.com/SFML/SFML/compare/master...ChrisThrasher:SFML:vertex_array)にまとまっている。~~
+`sf::VertexArray`はprivateなデータメンバとして`std::vector<sf::Vertex>`と`sf::PrimitiveType`を持つ。いくつか`std::vector`と共通するメンバ関数を持つが独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`等が欠けており、実際それを追加してはどうかという提案や、そもそも`sf::VertexArray`を構造体に変更し`std::vector`のインタフェイスを直接扱えるようにする提案もなされていた。しかしいずれも`sf::Drawable`インタフェイスに基づく設計原則に合わないとみなされ現状維持となったようだ。
 
 `reserve()`を追加する提案: https://github.com/SFML/SFML/pull/2587
 
