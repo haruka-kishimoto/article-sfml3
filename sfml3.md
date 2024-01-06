@@ -77,17 +77,21 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 `target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションか`sf::err()`で対応する方法もあるが、既にそれらによる警告なしに`sf::Shape/sf::Sprite/sf::Text`においてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
 
 
+## 見送られた提案
+
 ### sf::VertexArrayの再設計検討
 
 `sf::VertexArray`は`std::vector<sf::Vertex>`と`sf::PrimitiveType`のシンプルなラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
 
-その他の方法も議論されたが、今のところ具体的な進展はないようだ。
+~~その他の方法も議論されたが、今のところ具体的な進展はないようだ。~~
 
-構造体とした場合の変更点は[こちら](https://github.com/SFML/SFML/compare/master...ChrisThrasher:SFML:vertex_array)にまとまっている。
+2024年01月追記: `sf::Drawable`インタフェイスに基づく設計原則から現状維持となったようだ。
 
-`reserve()`を追加する提案: https://github.com/SFML/SFML/issues/2208
+~~構造体とした場合の変更点は[こちら](https://github.com/SFML/SFML/compare/master...ChrisThrasher:SFML:vertex_array)にまとまっている。~~
 
-再設計の議論: https://github.com/SFML/SFML/pull/2587
+`reserve()`を追加する提案: https://github.com/SFML/SFML/pull/2587
+
+再設計の議論: https://github.com/SFML/SFML/issues/2208
 
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
