@@ -81,7 +81,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ### sf::VertexArrayの再設計検討
 
-`sf::VertexArray`は`std::vector<sf::Vertex>`と`sf::PrimitiveType`のシンプルなラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
+`sf::VertexArray`は`sf::Drawable`の派生クラスで、その点を除いてしまえば構造的には`std::vector<sf::Vertex>`と`sf::PrimitiveType`のラッパである。`std::vector`と共通するAPIを提供しているが、独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`などが欠けており、実際それを追加してはどうかという提案もある。しかしそもそも`sf::VertexArray`を構造体に変更すれば`std::vector`のインタフェイスを直接扱えるようになる。`std::vector`と共通のインタフェイスを整備する労力は必要なくなる。`std::span`などの標準機能も適用できるようになる。
 
 ~~その他の方法も議論されたが、今のところ具体的な進展はないようだ。~~
 
