@@ -74,7 +74,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 これは`sf::VertexArray`と`sf::VertexBuffer`の描画に限られ、その他のDrawableは引き続きピクセル座標をデフォルトとして使う（ピクセル座標をデフォルトとする議論は[\#1773](https://github.com/SFML/SFML/issues/1773)を参照）。
 
-`target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションか`sf::err()`で対応する方法もあるが、既にそれらによる警告なしに`sf::Shape/sf::Sprite/sf::Text`においてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
+`target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションか`sf::err()`で対応する方法もあるが、既にそれらによる警告なしに`sf::Shape`/`sf::Sprite`/`sf::Text`においてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
 
 
 ## 見送られた提案
@@ -94,7 +94,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 `sf::Keyboard::key`を`enum`から`enum class`に変更。
 
 ### [\#2838](https://github.com/SFML/SFML/pull/2838)
-`sf::Mouse::XButton1`/`sf::Button::XButton2`を`sf::Mouse::Extra1`/`sf::Mouse::Extra2`に変更。
+`sf::Mouse::XButton1`/`sf::Button::XButton2`を`sf::Mouse::Button::Extra1`/`sf::Mouse::Button::Extra2`に変更。
 
 [\#2822](https://github.com/SFML/SFML/pull/2822)によって"Button"が繰り返されることになり冗長であることと、より意味のある名前にするために変更される。
 
