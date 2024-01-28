@@ -115,6 +115,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
 
+### [\#2329](https://github.com/SFML/SFML/pull/2329)
+`sf::InputSoundFile`/`sf::OutputSoundFile`がムーブに対応。
+
 ### [\#2137](https://github.com/SFML/SFML/pull/2137)
 `sf::Image::copy()`の戻り値を`void`から`bool`に変更。成否を表し、`[[nodiscard]]`属性付き。
 
@@ -131,6 +134,12 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ### [\#2055](https://github.com/SFML/SFML/pull/2055)
 各機能の数値ペアの引数を、2つの`T`から`sf::Vector2<T>`に変更（オーバーロードは提供しない）。
+
+### [\#2016](https://github.com/SFML/SFML/pull/2016)
+`sf::Font`, `sf::Text`, `sf::Image`, `sf::String`がムーブに対応。
+
+### [\#2014](https://github.com/SFML/SFML/pull/2014)
+`sf::Packet`がムーブに対応。
 
 ### [\#1979](https://github.com/SFML/SFML/pull/1979)
 `sf::Vector2f<T>`のメンバ関数を拡充。
@@ -165,6 +174,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#1934](https://github.com/SFML/SFML/pull/1934)
 `sf::Time`がconstexpr classになった。
 
+### [\#1932](https://github.com/SFML/SFML/pull/1932)
+`sf::FileInputStream`がムーブに対応。
+
 ### [\#1910](https://github.com/SFML/SFML/pull/1910)
 `sf::Vertex`がconstexpr classになった。
 
@@ -177,17 +189,8 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#1903](https://github.com/SFML/SFML/pull/1903)
 `sf::Vector2<T>`と`sf::Vector3<T>`がconstexpr classになった。
 
-### [\#1932](https://github.com/SFML/SFML/pull/1932)
-`sf::FileInputStream`がムーブに対応。
-
-### [\#2014](https://github.com/SFML/SFML/pull/2014)
-`sf::Packet`がムーブに対応。
-
-### [\#2016](https://github.com/SFML/SFML/pull/2016)
-`sf::Font`, `sf::Text`, `sf::Image`, `sf::String`がムーブに対応。
-
-### [\#2329](https://github.com/SFML/SFML/pull/2329)
-`sf::InputSoundFile`/`sf::OutputSoundFile`がムーブに対応。
+### [\#1807](https://github.com/SFML/SFML/pull/1807)
+`sf::RenderStates`に`sf::CoordinateType`を追加。
 
 
 ## 内部的な変更のリスト（一部）
@@ -207,15 +210,15 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 値のクランプは`std::min(std::max(v, lo), hi)`というイディオムがあるが、それを`std::clamp()`に置き換える。
 
-### [\#2192](https://github.com/SFML/SFML/pull/2192), [\#2196](https://github.com/SFML/SFML/pull/2196), [\#2199](https://github.com/SFML/SFML/pull/2199), [\#2200](https://github.com/SFML/SFML/pull/2200)
-SFML独自の古い固定長整数型のエイリアスをC++標準に置き換える（`sf::Int8`等を`std::int8_t`へ等）。
-
-[\#2021](https://github.com/SFML/SFML/pull/2021)もVulkan.hppで同様の置き換えを含んでる。
-
 ### [\#2195](https://github.com/SFML/SFML/pull/2195)
 `sf::Vector2<T>`および`sf::Vector3<T>`の`length()`の実装を`std::hypot()`から`std::sqrt()`へ変更。
 
 `std::hypot()`は計算途中のオーバーフロー/アンダーフローへの対処のために`std::sqrt()`よりも遅い。
+
+### [\#2192](https://github.com/SFML/SFML/pull/2192), [\#2196](https://github.com/SFML/SFML/pull/2196), [\#2199](https://github.com/SFML/SFML/pull/2199), [\#2200](https://github.com/SFML/SFML/pull/2200)
+SFML独自の古い固定長整数型のエイリアスをC++標準に置き換える（`sf::Int8`等を`std::int8_t`へ等）。
+
+[\#2021](https://github.com/SFML/SFML/pull/2021)もVulkan.hppで同様の置き換えを含んでる。
 
 ### [\#2156](https://github.com/SFML/SFML/pull/2156)
 uniform initializationと`= default`指定。
