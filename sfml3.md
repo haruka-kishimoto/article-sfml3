@@ -192,6 +192,8 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#1807](https://github.com/SFML/SFML/pull/1807)
 `sf::RenderStates`に`sf::CoordinateType`を追加。
 
+### [\#1453](https://github.com/SFML/SFML/pull/1453)
+ステンシルテストのサポートを追加。
 
 ## 内部的な変更のリスト（一部）
 
