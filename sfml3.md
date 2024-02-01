@@ -70,11 +70,20 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 `sf::RenderStates`でテクスチャ座標を正規化された値として扱うように指定できるようになる。
 
+`sf::CoordinateType`という`enum class`が追加された。値は正規化テクスチャ座標を表す`sf::CoordinateType::Normalized`とピクセル座標を表す`sf::CoordinateType::Pixels`の2つで、`sf::RenderStates`でのデフォルト値はピクセル座標となっている。
+
 初心者にとってはピクセル座標のほうがテクスチャ画像のどの部分が表示されるのかの対応を理解しやすいものの、一般的には正規化されたテクスチャ座標を扱うことが多い。この変更によりそのようなデータをピクセル座標へ変換する手間なく直接扱えるようになる。
 
 これは`sf::VertexArray`と`sf::VertexBuffer`の描画に限られ、その他のDrawableは引き続きピクセル座標をデフォルトとして使う（ピクセル座標をデフォルトとする議論は[\#1773](https://github.com/SFML/SFML/issues/1773)を参照）。
 
 `target.draw(shape, sf::CoordinateType::Normalized)`のように、Drawableを正規化された値で描画するようオーバーロードを呼び出した場合の挙動については、SFMLユーザに警告なしにテクスチャ座標の扱いを（正規化された値ではなく）ピクセル座標としている。この点についてアサーションか`sf::err()`で対応する方法もあるが、既にそれらによる警告なしに`sf::Shape`/`sf::Sprite`/`sf::Text`においてテクスチャが上書きされる処理が存在するため、暗黙的に内部で描画内容が上書きされることが容認されているとしてそれに倣っている。
+
+
+### ステンシルテスト
+
+`sf::StencilMode`クラスによるステンシルテストのサポートが追加された。`glStencilFunc()`による比較に直接対応するように設計されている。
+
+`sf::CoordinateType`と同じく`sf::RenderStates`で扱う。
 
 
 ## 見送られた提案
