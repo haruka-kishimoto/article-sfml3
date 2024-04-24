@@ -115,6 +115,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 - `sf::Style`と`sf::ContextSettings::Attribute`についてはフラグを表すものとして含まない。
 - `sf::Event::EventType`については[\#2766](https://github.com/SFML/SFML/pull/2766)でイベントAPIの改善が予定されているため含まない。
 
+### [\#2818](https://github.com/SFML/SFML/pull/2818)
+`sf::State`を追加。フルスクリーン/ウィンドウの指定を`sf::Style`から分離。
+
 ### [\#2766](https://github.com/SFML/SFML/pull/2766)
 `sf::Event`のAPIを改善。[\#2668](https://github.com/SFML/SFML/issues/2668)での議論を経て`std::variant`を使用して実装。
 
