@@ -124,6 +124,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ### [\#2756](https://github.com/SFML/SFML/pull/2756)
 これまで`sf::Image::saveToMemory()`はバッファを引数に取り、そのバッファに内容を格納できたかを`bool`で返していた。この変更ではバッファを受け取る引数を削除し、結果を`std::optional`で返すようにする。
 
+### [\#2749](https://github.com/SFML/SFML/pull/2749)
+オーディオバックエンドをOpenALからminiaudioに置き換え。
+
 ### [\#2417](https://github.com/SFML/SFML/pull/2417)
 ウィンドウアイコンを`sf::Image`をもとに設定できるようにする。
 
