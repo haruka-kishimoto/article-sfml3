@@ -100,7 +100,7 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
 
 ### [\#2962](https://github.com/SFML/SFML/pull/2962)
-オーディオモジュールで`enum class`を使用。`sf::Sound`/`sf::SoundStream`/`sf::Music`の基底クラスである`sf::SoundSource`の`Status`を`enum`から`enum class`に変更。
+オーディオモジュールで`enum class`を使用。`sf::SoundSource`の`Status`を`enum`から`enum class`に変更。
 
 ### [\#2891](https://github.com/SFML/SFML/pull/2891)
 グラフィックスモジュールで`enum class`を使用。`sf::BlendMode`の`Factor`/`Equation`、`sf::Shader`の`Type`、`sf::VertexBuffer`の`Usage`を`enum`から`enum class`に変更。
