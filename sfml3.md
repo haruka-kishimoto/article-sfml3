@@ -9,6 +9,37 @@ SFMLの次期メジャーバージョン。[GitHub](https://github.com/SFML/SFML
 
 C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）。
 
+### 新しいイベント処理機構
+
+`sf::Event` APIが刷新された（[\#2766](https://github.com/SFML/SFML/pull/2766)）。`std::variant`を使って設計され、アクティブなイベントに型安全な方法でアクセスできるようになった。
+
+具体的な使用方法としては、`sf::Event::Closed`のようなプロパティを持たないイベントについて単にそのイベント種類であることを特定する場合は、イベント種類をテンプレート引数に`sf::Event::if()`を呼び出す。
+
+ウィンドウのリサイズやマウスホイールの回転等のプロパティを持つイベントについては、イベント種類をテンプレート引数に`sf::Event::getIf()`を呼び出すと返るポインタ経由でプロパティにアクセスできる。
+
+なおこの設計は依然SFML 3における最終的なものではないがマスターにマージすることで使用者からのフィードバックを集めるものとしている。
+
+```cpp
+// #2766以前:
+for (sf::Event event; window.pollEvent(event);) {
+    if (event.type == sf::Event::Closed) {
+        window.close();
+    } else if (event.type == sf::Event::Resized) {
+        ...
+    }
+}
+
+// #2766以降:
+for (sf::Event event; window.pollEvent(event);) {
+    if (event.is<sf::Event::Closed>()){
+        window.close();
+    } else if (const auto* resized = event.getIf<sf::Event::Resized>()) {
+        // リサイズ後のサイズはresized->sizeでアクセスできる;
+    }
+}
+```
+
+
 ### sf::Vectorの機能追加
 `sf::Vector`に数学的機能が追加される。`sf::Vector3<T>`にはドット積やクロス積、長さ、正規化、コンポーネント単位での乗除算が、`sf::Vector2<T>`にはそれらに加えて**角度**を扱う機能が複数サポートされる。
 
