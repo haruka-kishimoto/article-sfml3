@@ -20,7 +20,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 なおこの設計は依然SFML 3における最終的なものではないがマスターにマージすることで使用者からのフィードバックを集めるものとしている。
 
 ```cpp
-// #2766以前:
+// 旧来のイベント処理:
 for (sf::Event event; window.pollEvent(event);) {
     if (event.type == sf::Event::Closed) {
         window.close();
@@ -29,12 +29,12 @@ for (sf::Event event; window.pollEvent(event);) {
     }
 }
 
-// #2766以降:
+// 改善されたイベント処理:
 for (sf::Event event; window.pollEvent(event);) {
     if (event.is<sf::Event::Closed>()){
         window.close();
     } else if (const auto* resized = event.getIf<sf::Event::Resized>()) {
-        // リサイズ後のサイズはresized->sizeでアクセスできる;
+        // resized->sizeでリサイズ後のサイズにアクセスできる;
     }
 }
 ```
