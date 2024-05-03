@@ -13,6 +13,8 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 
 `sf::Event` APIが刷新された（[\#2766](https://github.com/SFML/SFML/pull/2766)）。`std::variant`を使って設計され、アクティブなイベントに型安全な方法でアクセスできるようになった。
 
+また`operator bool()`が追加され、ポーリングが簡素化された（[\#2968](https://github.com/SFML/SFML/pull/2968)）。
+
 具体的な使用方法としては、`sf::Event::Closed`のようなプロパティを持たないイベントについて単にそのイベント種類であることを特定する場合は、イベント種類をテンプレート引数に`sf::Event::if()`を呼び出す。
 
 ウィンドウのリサイズやマウスホイールの回転等のプロパティを持つイベントについては、イベント種類をテンプレート引数に`sf::Event::getIf()`を呼び出すと返るポインタ経由でプロパティにアクセスできる。
@@ -30,7 +32,7 @@ for (sf::Event event; window.pollEvent(event);) {
 }
 
 // 改善されたイベント処理:
-for (sf::Event event; window.pollEvent(event);) {
+while (const auto event = window.pollEvent(event)) {
     if (event.is<sf::Event::Closed>()){
         window.close();
     } else if (const auto* resized = event.getIf<sf::Event::Resized>()) {
@@ -129,6 +131,9 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
+
+### [\#2968](https://github.com/SFML/SFML/pull/2968)
+`sf::Event`に`operator bool()`を追加。
 
 ### [\#2962](https://github.com/SFML/SFML/pull/2962)
 オーディオモジュールで`enum class`を使用。`sf::SoundSource::Status`を`enum`から`enum class`に変更。
