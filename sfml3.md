@@ -32,7 +32,7 @@ for (sf::Event event; window.pollEvent(event);) {
 }
 
 // 改善されたイベント処理:
-while (const auto event = window.pollEvent(event)) {
+while (const auto event = window.pollEvent()) {
     if (event.is<sf::Event::Closed>()){
         window.close();
     } else if (const auto* resized = event.getIf<sf::Event::Resized>()) {
