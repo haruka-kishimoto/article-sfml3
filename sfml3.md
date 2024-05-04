@@ -13,7 +13,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 
 `sf::Event` APIが刷新された（[\#2766](https://github.com/SFML/SFML/pull/2766)）。`std::variant`を使って設計され、アクティブなイベントに型安全な方法でアクセスできるようになった。
 
-また`operator bool()`が追加され、ポーリングが簡素化された（[\#2968](https://github.com/SFML/SFML/pull/2968)）。
+また`sf::Event::operator bool()`が追加され、ポーリングが簡素化された（[\#2968](https://github.com/SFML/SFML/pull/2968)）。
 
 具体的な使用方法としては、`sf::Event::Closed`のようなプロパティを持たないイベントについて単にそのイベント種類であることを特定する場合は、イベント種類をテンプレート引数に`sf::Event::if()`を呼び出す。
 
