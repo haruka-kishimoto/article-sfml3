@@ -23,7 +23,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 
 ```cpp
 // 旧来のイベント処理:
-for (sf::Event event; window.pollEvent(event);) {
+for (sf::Event event{}; window.pollEvent(event);) {
     if (event.type == sf::Event::Closed) {
         window.close();
     } else if (event.type == sf::Event::Resized) {
