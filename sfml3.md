@@ -132,6 +132,13 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
 
+### [\#2973](https://github.com/SFML/SFML/pull/2973)
+ユーザ定義サウンドエフェクトのサポートを追加。
+
+サウンドエフェクト(DSP)のサポートはもともと[\#1708](https://github.com/SFML/SFML/pull/1708)にて検討されていた。
+しかしマージまで至らず、前提とするオーディオバックエンドがOpenALからminiaudioに置き換えられこともありPRがcloseされた。
+その趣旨を受け継いだものが今回のPRであり、APIが拡張可能なものに再設計された上でのサポート追加となる。
+
 ### [\#2968](https://github.com/SFML/SFML/pull/2968)
 `sf::Event`に`operator bool()`を追加。
 
