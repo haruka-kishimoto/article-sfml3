@@ -88,7 +88,13 @@ sf::Vector2f offset{ speed, sf::degrees(-20.f) };
 potision += (offset * delta);
 ```
 
-### sf::Rectの交差判定刷新
+### sf::Rect再設計
+
+#### 位置とサイズ
+
+`sf::Rect<T>`のメンバ変数について、`left`/`top`/`width`/`height`の4つの`T`が削除され、代わりに`sf::Vector2<T>`で`position`と`size`を持つように変更された。またメンバ関数`getPosition()`/`getSize()`が削除された。
+
+#### 交差判定
 `intersects()`は`findIntersection()`となる。以前は交差部分を扱うかどうかでオーバーロードを提供していたが、1つのメンバ関数に集約される。戻り値が`bool`から`std::optional<sf::Rect<T>>`に変更され、交差部分があればそれを有効値として返すようになった。
 ```cpp
 // 戻り値を使う例（当然discardableなので使わなくてもよい）。
