@@ -11,7 +11,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 
 ### 新しいイベント処理機構
 
-`sf::Event` APIが刷新された（[\#2766](https://github.com/SFML/SFML/pull/2766)）。`std::variant`を使って設計され、アクティブなイベントに型安全な方法でアクセスできるようになった。
+`sf::Event` APIが刷新された（[\#2992](https://github.com/SFML/SFML/pull/2992)/[\#2766](https://github.com/SFML/SFML/pull/2766)）。`std::variant`と`std::optional`を使って設計され、アクティブなイベントに型安全な方法でアクセスできるようになった。
 
 また`sf::Event::operator bool()`が追加され、ポーリングが簡素化された（[\#2968](https://github.com/SFML/SFML/pull/2968)）。
 
@@ -20,6 +20,8 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 ウィンドウのリサイズやマウスホイールの回転等のプロパティを持つイベントについては、イベント種類をテンプレート引数に`sf::Event::getIf()`を呼び出すと返るポインタ経由でプロパティにアクセスできる。
 
 なおこの設計は依然SFML 3における最終的なものではないがマスターにマージすることで使用者からのフィードバックを集めるものとしている。
+
+今後さらに`sf::Event::visit()`が追加される予定だ。
 
 ```cpp
 // 旧来のイベント処理:
@@ -33,9 +35,9 @@ for (sf::Event event{}; window.pollEvent(event);) {
 
 // 改善されたイベント処理:
 while (const auto event = window.pollEvent()) {
-    if (event.is<sf::Event::Closed>()){
+    if (event->is<sf::Event::Closed>()){
         window.close();
-    } else if (const auto* resized = event.getIf<sf::Event::Resized>()) {
+    } else if (const auto* resized = event->getIf<sf::Event::Resized>()) {
         // resized->sizeでリサイズ後のサイズにアクセスできる;
     }
 }
