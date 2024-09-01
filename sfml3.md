@@ -99,7 +99,6 @@ potision += (offset * delta);
 #### 交差判定
 `intersects()`は`findIntersection()`となる。以前は交差部分を扱うかどうかでオーバーロードを提供していたが、1つのメンバ関数に集約される。戻り値が`bool`から`std::optional<sf::Rect<T>>`に変更され、交差部分があればそれを有効値として返すようになった。
 ```cpp
-// 戻り値を使う例（当然discardableなので使わなくてもよい）。
 if (auto intersection = rect.findIntersection(other_rect); intersection) {
     const auto& interssection_rect = *intersection;
     ...
