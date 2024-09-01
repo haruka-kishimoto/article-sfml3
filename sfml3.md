@@ -21,7 +21,7 @@ C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）
 
 なおこの設計は依然SFML 3における最終的なものではないがマスターにマージすることで使用者からのフィードバックを集めるものとしている。
 
-今後さらに`sf::Event::visit()`が追加される予定だ。
+さらに[\#3139](https://github.com/SFML/SFML/pull/3139)にて`sf::Event::visit()`と`sf::WindowBase::handleEvents()`が追加された。
 
 ```cpp
 // 旧来のイベント処理:
