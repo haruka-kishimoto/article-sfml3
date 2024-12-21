@@ -3,4 +3,12 @@
 
 本文: [sfml3.md](https://github.com/haruka-kishimoto/article-sfml3/blob/main/sfml3.md)
 
-SFMLの次期メジャーバージョンであるSFML 3について、その新機能とバージョン2.5系/2.6系からの変更点を取り上げる。
+SFMLの新たなメジャーバージョンであるSFML 3について公式リポジトリでの開発状況を翻訳しまとめている。
+
+## SFML 3正式リリース
+2024年12月21日、SFML 3が正式リリースされた。
+
+本記事の内容は9月から正式リリース時点までの間の開発状況に追従していない。
+
+SFML 2からSFML 3への移行について、公式にガイドが公開されている:
+[移行ガイド](https://github.com/SFML/SFML/blob/master/migration.md)
