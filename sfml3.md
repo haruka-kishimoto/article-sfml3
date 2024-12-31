@@ -139,6 +139,26 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
 
+### [\#3231](https://github.com/SFML/SFML/pull/3231)
+ウィンドウスタイルを指定しない`sf::WindowBase::create()`を追加。
+
+### [\#3214](https://github.com/SFML/SFML/pull/3214)
+「アンチエイリアシング」の綴りを変更。
+
+綴りが`Antialiasing`から`AntiAliasing`に変更された（「エイリアシング」の頭文字のAが大文字に変更された）。
+
+具体的には`sf::RenderTexture`のメンバ関数`getMaximumAntialiasingLevel()`が`getMaximumAntiAliasingLevel()`に、`sf::ContextSettings`のメンバ変数`antialiasingLevel`が`antiAliasingLevel`に変更された。
+
+### [\#3212](https://github.com/SFML/SFML/pull/3212)
+`sf::Vector2<T>`/`sf::Vector3<T>`のメンバ関数の名前を変更。
+
+[\#1979](https://github.com/SFML/SFML/pull/1979)と[\#2086](https://github.com/SFML/SFML/pull/2086) で追加されたメンバ関数の名前が変更された。
+
+`lengthSq()`が`lengthSquared()`に、`cwiseMul()`と`cwiseDiv()`がそれぞれ`componentWiseMul()`と`componentWiseDiv()`に変更された。
+
+### [\#3144](https://github.com/SFML/SFML/pull/3144)
+`nullptr`による`sf::String`の構築を禁止。
+
 ### [\#2973](https://github.com/SFML/SFML/pull/2973)
 ユーザ定義サウンドエフェクトのサポートを追加。
 
