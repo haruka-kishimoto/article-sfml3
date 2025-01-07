@@ -8,7 +8,5 @@ SFMLの新たなメジャーバージョンであるSFML 3について公式リ�
 ## SFML 3正式リリース
 2024年12月21日、SFML 3が正式リリースされた。
 
-本記事の内容は正式リリース以降の開発状況に追従していない。
-
 SFML 2からSFML 3への移行について、公式にガイドが公開されている:
 [移行ガイド](https://github.com/SFML/SFML/blob/master/migration.md)
