@@ -1,13 +1,15 @@
 
 # SFML 3の新機能/SFML 2系からの変更点
 
-この記事ではSFMLの次期メジャーバージョンであるSFML 3について、その新機能とバージョン2.5系/2.6系からの変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRに基づいている。
+この記事ではSFMLの新しいメジャーバージョンであるSFML 3について、その新機能とバージョン2系からの変更点を取り上げる。SFML 3はGitHubにて開発中であり、この記事の内容はGitHubプロジェクトのIssue/PRに基づいている。
 
 ## SFML 3
 
-SFMLの次期メジャーバージョン。[GitHub](https://github.com/SFML/SFML)にて開発中。
+SFMLの新しいメジャーバージョン。[GitHub](https://github.com/SFML/SFML)にて開発中。
 
 C++17を採用している（[\#1855](https://github.com/SFML/SFML/pull/1855)）。
+
+[バージョン3.0.0](https://github.com/SFML/SFML/releases/tag/3.0.0)がリリース済み。
 
 ### 新しいイベント処理機構
 
@@ -44,10 +46,10 @@ while (const auto event = window.pollEvent()) {
 ```
 
 
-### sf::Vectorの機能追加
+### `sf::Vector`の機能追加
 `sf::Vector`に数学的機能が追加される。`sf::Vector3<T>`にはドット積やクロス積、長さ、正規化、コンポーネント単位での乗除算が、`sf::Vector2<T>`にはそれらに加えて**角度**を扱う機能が複数サポートされる。
 
-### sf::Angleの追加およびsf::Vector2fとの併用
+### `sf::Angle`の追加および`sf::Vector2f`との併用
 角度を扱う新しいクラスとして`sf::Angle`が追加される。デフォルト構築および度/ラジアンからの構築とそれぞれの値への変換、算術演算、ユーザ定義リテラル（`_deg`/`_rad`）をサポートする。
 
 ```cpp
@@ -90,7 +92,7 @@ sf::Vector2f offset{ speed, sf::degrees(-20.f) };
 potision += (offset * delta);
 ```
 
-### sf::Rect再設計
+### `sf::Rect`再設計
 
 #### 位置とサイズ
 
@@ -126,15 +128,16 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 `sf::CoordinateType`と同じく`sf::RenderStates`で扱う。
 
 
-## 見送られた提案
+## Milestone 3.1での変更
 
-### sf::VertexArrayの機能追加/再設計
+### [\#3380](https://github.com/SFML/SFML/pull/3380)
+Opusサポートを追加。
 
-`sf::VertexArray`はprivateなデータメンバとして`std::vector<sf::Vertex>`と`sf::PrimitiveType`を持つ。いくつか`std::vector`と共通するメンバ関数を持つが独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`等が欠けており、実際それを追加してはどうかという提案や、そもそも`sf::VertexArray`を構造体に変更し`std::vector`のインタフェイスを直接扱えるようにする提案もなされていた。しかしいずれも`sf::Drawable`インタフェイスに基づく設計原則に合わないとみなされ現状維持となったようだ。
+### [\#3367](https://github.com/SFML/SFML/pull/3367)
+非const版の`sf::Event::getIf`を追加。
 
-`reserve()`を追加する提案: https://github.com/SFML/SFML/pull/2587
-
-再設計の議論: https://github.com/SFML/SFML/issues/2208
+### [\#2265](https://github.com/SFML/SFML/pull/2265)
+ドラッグアンドドロップをサポート。ドラフト。
 
 
 ## SFML 3の新機能/SFML 2系からの変更点のリスト
@@ -344,3 +347,14 @@ uniform initializationと`= default`指定。
 
 ### [\#1880](https://github.com/SFML/SFML/pull/1880)
 clang-tidyのmodernize-use-autoで洗い出した情報欠落が起きない部分で`auto`を使うように変更。
+
+
+## 見送られた提案
+
+### `sf::VertexArray`の機能追加/再設計
+
+`sf::VertexArray`はprivateなデータメンバとして`std::vector<sf::Vertex>`と`sf::PrimitiveType`を持つ。いくつか`std::vector`と共通するメンバ関数を持つが独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`等が欠けており、実際それを追加してはどうかという提案や、そもそも`sf::VertexArray`を構造体に変更し`std::vector`のインタフェイスを直接扱えるようにする提案もなされていた。しかしいずれも`sf::Drawable`インタフェイスに基づく設計原則に合わないとみなされ現状維持となったようだ。
+
+`reserve()`を追加する提案: https://github.com/SFML/SFML/pull/2587
+
+再設計の議論: https://github.com/SFML/SFML/issues/2208
