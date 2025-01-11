@@ -136,6 +136,9 @@ Opusサポートを追加。
 ### [\#3367](https://github.com/SFML/SFML/pull/3367)
 非const版の`sf::Event::getIf`を追加。
 
+### [\#3366](https://github.com/SFML/SFML/pull/3366)
+`sf::VertexArray`に`begin()`と`end()`を追加。`sf::VertexArray`を範囲for文で扱えるようになる。
+
 ### [\#2265](https://github.com/SFML/SFML/pull/2265)
 ドラッグアンドドロップをサポート。ドラフト。
 
