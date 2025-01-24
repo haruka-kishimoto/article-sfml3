@@ -379,14 +379,3 @@ uniform initializationと`= default`指定。
 
 ### [\#1880](https://github.com/SFML/SFML/pull/1880)
 clang-tidyのmodernize-use-autoで洗い出した情報欠落が起きない部分で`auto`を使うように変更。
-
-
-## 見送られた提案
-
-### `sf::VertexArray`の機能追加/再設計
-
-`sf::VertexArray`はprivateなデータメンバとして`std::vector<sf::Vertex>`と`sf::PrimitiveType`を持つ。いくつか`std::vector`と共通するメンバ関数を持つが独自の処理を行うことなく`std::vector`のメンバ関数を呼び出し引数を受け渡しているに過ぎない。さらに`reserve()`等が欠けており、実際それを追加してはどうかという提案や、そもそも`sf::VertexArray`を構造体に変更し`std::vector`のインタフェイスを直接扱えるようにする提案もなされていた。しかしいずれも`sf::Drawable`インタフェイスに基づく設計原則に合わないとみなされ現状維持となったようだ。
-
-`reserve()`を追加する提案: https://github.com/SFML/SFML/pull/2587
-
-再設計の議論: https://github.com/SFML/SFML/issues/2208
