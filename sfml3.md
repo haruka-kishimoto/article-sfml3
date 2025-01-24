@@ -46,6 +46,35 @@ while (const auto event = window.pollEvent()) {
 ```
 
 
+### 低コストでコピー可能な引数/戻り値をconst参照渡しから値渡しに変更
+
+[\#3047](https://github.com/SFML/SFML/issues/3047)
+
+関数の引数および戻り値の`sf::Vector2<T>`/`sf::Color`/`sf::IpAddress`をconst参照渡しから値渡しに変更する。
+
+個別のPR:
+
+[\#3140](https://github.com/SFML/SFML/pull/3140)
+`sf::Vector2<T>`
+
+[\#3170](https://github.com/SFML/SFML/pull/3170)
+`sf::Color`
+
+[\#3179](https://github.com/SFML/SFML/pull/3179)
+`sf::IpAddress`
+
+PRでは変更の根拠の一つとしてC++コアガイドラインの項目[F.16](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-in)を取り上げている。
+
+ガイドラインでは（マシンのアーキテクチャ依存ではあるものの）2ワードまたは3ワードを低コストでコピー可能としている。
+
+PRでは念のため2ワードの型を値渡しで扱う。
+
+以下は値渡しに適した型かを判定する変数テンプレート:
+```cpp
+template<typename T>
+constexpr bool should_pass_by_value = std::is_trivially_copyable_v<T> and (sizeof(T) <= (2 * sizeof(void*)));
+```
+
 ### `sf::Vector`の機能追加
 `sf::Vector`に数学的機能が追加される。`sf::Vector3<T>`にはドット積やクロス積、長さ、正規化、コンポーネント単位での乗除算が、`sf::Vector2<T>`にはそれらに加えて**角度**を扱う機能が複数サポートされる。
 
