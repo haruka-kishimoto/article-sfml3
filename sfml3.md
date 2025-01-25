@@ -168,6 +168,9 @@ Opusサポートを追加。
 ### [\#3366](https://github.com/SFML/SFML/pull/3366)
 `sf::VertexArray`に`begin()`と`end()`を追加。`sf::VertexArray`を範囲for文で扱えるようになる。
 
+### [\#3238](https://github.com/SFML/SFML/pull/3238)
+イベント処理にCapsLock/NumLock/ScrollLockのサポートを追加。
+
 ### [\#2265](https://github.com/SFML/SFML/pull/2265)
 ドラッグアンドドロップをサポート。ドラフト。
 
