@@ -157,6 +157,12 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 `sf::CoordinateType`と同じく`sf::RenderStates`で扱う。
 
 
+## Unicodeサポート
+
+### [\#3406](https://github.com/SFML/SFML/issues/3406)
+
+Unicodeサポートに関するIssue/PRの一覧。
+
 ## Milestone 3.1での変更
 
 ### [\#3380](https://github.com/SFML/SFML/pull/3380)
