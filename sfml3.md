@@ -78,7 +78,7 @@ constexpr bool should_pass_by_value = std::is_trivially_copyable_v<T> and (sizeo
 ### `sf::Vector`の機能追加
 `sf::Vector`に数学的機能が追加される。`sf::Vector3<T>`にはドット積やクロス積、長さ、正規化、コンポーネント単位での乗除算が、`sf::Vector2<T>`にはそれらに加えて**角度**を扱う機能が複数サポートされる。
 
-### `sf::Angle`の追加および`sf::Vector2f`との併用
+### `sf::Angle`の追加
 角度を扱う新しいクラスとして`sf::Angle`が追加される。デフォルト構築および度/ラジアンからの構築とそれぞれの値への変換、算術演算、ユーザ定義リテラル（`_deg`/`_rad`）をサポートする。
 
 ```cpp
@@ -105,21 +105,17 @@ angle = sf::radians(radians);
 - [0°, 360°)に制限した値を返す`wrapUnsigned()`
     - 例えば`sf::degrees(-90).wrapUnsigned()`の戻り値は`sf::degrees(270)`と等しい。
 
-`sf::Vector2f`との併用。
+#### `sf::Vector2`との併用
 
-例えばゲーム開発において極座標を用いるとキャラクタ等の任意の方向への動き等を簡単に表現できる。
+`sf::Vector2<T>`での`sf::Angle`を使った機能として、`sf::Vector2<T>`を極座標（長さと角度で表す座標）から構築するコンストラクタが追加された。
 
 ```cpp
-using SpeedPerSecond = float;
-SpeedPerSecond speed = 100.f;
-
-// 極座標での構築。長さ（この例では速度）とX軸からの角度を引数に取る。
-sf::Vector2f offset{ speed, sf::degrees(-20.f) };
-
-// キャラクタ等の現在位置を更新する。
-// deltaはゲームループの経過時間（単位はSpeedPerSecondと合わせて秒とする）。
-potision += (offset * delta);
+sf::Vector2f v{ length, angle };
 ```
+
+- `T`は浮動小数点数である必要がある。
+- このコンストラクタで構築した`sf::Vector2<T>`の`length()`および`angle()`の戻り値はコンストラクタに与えた値とは必ずしも一致しない。
+
 
 ### `sf::Rect`再設計
 
