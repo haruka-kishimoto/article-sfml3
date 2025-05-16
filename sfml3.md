@@ -65,14 +65,14 @@ while (const auto event = window.pollEvent()) {
 
 PRでは変更の根拠の一つとしてC++コアガイドラインの項目[F.16](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-in)を取り上げている。
 
-ガイドラインでは（マシンのアーキテクチャ依存ではあるものの）2ワードまたは3ワードを低コストでコピー可能としており、そのようなオブジェクトは値渡しすべきだとしている。
+関数への入力専用引数について、ガイドラインでは（マシンのアーキテクチャ依存ではあるものの）2ワードまたは3ワードを低コストでコピー可能としており、そのようなオブジェクトは値渡しすべきだとしている。
 
 PRでは念のため2ワードの型を値渡しで扱う。
 
-以下は値渡しに適した型かを判定する変数テンプレート:
+以下は低コストでコピー可能な型かを判定する変数テンプレート:
 ```cpp
 template<typename T>
-constexpr bool should_pass_by_value = std::is_trivially_copyable_v<T> and (sizeof(T) <= (2 * sizeof(void*)));
+constexpr bool is_cheaply_copied_type = std::is_trivially_copyable_v<T> and (sizeof(T) <= (2 * sizeof(void*)));
 ```
 
 ### `sf::Vector`の機能追加
