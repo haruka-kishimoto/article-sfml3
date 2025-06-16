@@ -234,6 +234,9 @@ Opusサポートを追加。
 ### [\#2818](https://github.com/SFML/SFML/pull/2818)
 `sf::State`を追加。フルスクリーン/ウィンドウの指定を`sf::Style`から分離。
 
+### [\#2776](https://github.com/SFML/SFML/pull/2776)
+`sf::Rect<T>::getCenter()`を追加。
+
 ### [\#2766](https://github.com/SFML/SFML/pull/2766)
 `sf::Event`のAPIを改善。[\#2668](https://github.com/SFML/SFML/issues/2668)での議論を経て`std::variant`を使用して実装。
 
