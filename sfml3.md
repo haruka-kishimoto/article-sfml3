@@ -159,16 +159,20 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 
 Unicodeサポートに関するIssue/PRの一覧。
 
-## Milestone 3.1での変更
 
-### [\#3380](https://github.com/SFML/SFML/pull/3380)
-Opusサポートを追加。
+## SFML 3.1.0で予定されている変更
 
 ### [\#3367](https://github.com/SFML/SFML/pull/3367)
 非const版の`sf::Event::getIf`を追加。
 
 ### [\#3366](https://github.com/SFML/SFML/pull/3366)
 `sf::VertexArray`に`begin()`と`end()`を追加。`sf::VertexArray`を範囲for文で扱えるようになる。
+
+
+## SFML 3.2.0で予定されている変更
+
+### [\#3380](https://github.com/SFML/SFML/pull/3380)
+Opusサポートを追加。
 
 ### [\#3238](https://github.com/SFML/SFML/pull/3238)
 イベント処理にCapsLock/NumLock/ScrollLockのサポートを追加。
