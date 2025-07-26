@@ -162,6 +162,9 @@ Unicodeサポートに関するIssue/PRの一覧。
 
 ## SFML 3.1.0で予定されている変更
 
+### [\#3543](https://github.com/SFML/SFML/pull/3543)
+テキストのレイアウトとシェイピングの改善。シェイピングエンジンを独自のものからHarfBuzzに置き換える。
+
 ### [\#3367](https://github.com/SFML/SFML/pull/3367)
 非const版の`sf::Event::getIf`を追加。
 
