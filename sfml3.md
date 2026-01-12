@@ -162,6 +162,12 @@ Unicodeサポートに関するIssue/PRの一覧。
 
 ## SFML 3.1.0で予定されている変更
 
+### [\#3629](https://github.com/SFML/SFML/pull/3629)
+- `sf::Http::setHost()`が`bool`を返すように変更。
+- `sf::Http::sendRequest()`を`const`化。
+
+誤ってクローズされた[\#3542](https://github.com/SFML/SFML/pull/3542)を引き継いだPR。
+
 ### [\#3545](https://github.com/SFML/SFML/pull/3545)
 TLSとHTTPSのサポートを追加。[Mbed TLS](https://github.com/Mbed-TLS/mbedtls)を使用して`sf::TcpSocket`にTransport Layer Securityサポートが追加された。あわせてTLSストリーム上のHTTPであるHTTPSサポートも追加された。
 
@@ -397,4 +403,5 @@ uniform initializationと`= default`指定。
 
 ### [\#1880](https://github.com/SFML/SFML/pull/1880)
 clang-tidyのmodernize-use-autoで洗い出した情報欠落が起きない部分で`auto`を使うように変更。
+
 
