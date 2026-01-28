@@ -180,6 +180,9 @@ TLSとHTTPSのサポートを追加。[Mbed TLS](https://github.com/Mbed-TLS/mbe
 ### [\#3366](https://github.com/SFML/SFML/pull/3366)
 `sf::VertexArray`に`begin()`と`end()`を追加。`sf::VertexArray`を範囲for文で扱えるようになる。
 
+### [\#2517](https://github.com/SFML/SFML/pull/2517)
+`sf::String`に`std::string_view`を受け取るコンストラクタを追加。
+
 
 ## SFML 3.2.0で予定されている変更
 
@@ -403,5 +406,6 @@ uniform initializationと`= default`指定。
 
 ### [\#1880](https://github.com/SFML/SFML/pull/1880)
 clang-tidyのmodernize-use-autoで洗い出した情報欠落が起きない部分で`auto`を使うように変更。
+
 
 
