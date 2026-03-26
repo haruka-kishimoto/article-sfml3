@@ -162,6 +162,9 @@ Unicodeサポートに関するIssue/PRの一覧。
 
 ## SFML 3.1.0で予定されている変更
 
+### [\#3675](https://github.com/SFML/SFML/pull/3675)
+FTPの代替としてSFTPのサポートを追加。
+
 ### [\#3629](https://github.com/SFML/SFML/pull/3629)
 - `sf::Http::setHost()`が`bool`を返すように変更。
 - `sf::Http::sendRequest()`を`const`化。
