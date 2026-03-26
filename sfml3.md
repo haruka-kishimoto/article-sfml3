@@ -50,7 +50,7 @@ while (const auto event = window.pollEvent()) {
 
 [\#3047](https://github.com/SFML/SFML/issues/3047)
 
-関数の引数および戻り値の`sf::Vector2<T>`/`sf::Color`/`sf::IpAddress`をconst参照渡しから値渡しに変更する。
+関数の引数および戻り値の`sf::Vector2<T>`/`sf::Color`/`sf::IpAddress`を`const`参照渡しから値渡しに変更する。
 
 個別のPR:
 
@@ -175,7 +175,7 @@ TLSとHTTPSのサポートを追加。[Mbed TLS](https://github.com/Mbed-TLS/mbe
 テキストのレイアウトとシェイピングの改善。シェイピングエンジンを独自のものからHarfBuzzに置き換える。
 
 ### [\#3367](https://github.com/SFML/SFML/pull/3367)
-非const版の`sf::Event::getIf`を追加。
+非`const`版の`sf::Event::getIf`を追加。
 
 ### [\#3366](https://github.com/SFML/SFML/pull/3366)
 `sf::VertexArray`に`begin()`と`end()`を追加。`sf::VertexArray`を範囲for文で扱えるようになる。
@@ -222,7 +222,7 @@ Opusサポートを追加。
 ユーザ定義サウンドエフェクトのサポートを追加。
 
 サウンドエフェクト(DSP)のサポートはもともと[\#1708](https://github.com/SFML/SFML/pull/1708)にて検討されていた。
-しかしマージまで至らず、前提とするオーディオバックエンドがOpenALからminiaudioに置き換えられこともありPRがcloseされた。
+しかしマージまで至らず、前提とするオーディオバックエンドがOpenALからminiaudioに置き換えられこともありPRがクローズされた。
 その趣旨を受け継いだものが今回のPRであり、APIが拡張可能なものに再設計された上でのサポート追加となる。
 
 ### [\#2968](https://github.com/SFML/SFML/pull/2968)
@@ -328,22 +328,22 @@ Opusサポートを追加。
 `sf::Rect<T>::contains()`の引数を2つの`T`から`sf::Vector2<T>`に変更（オーバーロードは提供しない）。
 
 ### [\#1934](https://github.com/SFML/SFML/pull/1934)
-`sf::Time`がconstexpr classになった。
+`sf::Time`を`constexpr`クラス化。
 
 ### [\#1932](https://github.com/SFML/SFML/pull/1932)
 `sf::FileInputStream`がムーブに対応。
 
 ### [\#1910](https://github.com/SFML/SFML/pull/1910)
-`sf::Vertex`がconstexpr classになった。
+`sf::Vertex`を`constexpr`クラス化。
 
 ### [\#1909](https://github.com/SFML/SFML/pull/1909)
-`sf::Rect<T>`がconstexpr classになった。
+`sf::Rect<T>`を`constexpr`クラス化。
 
 ### [\#1904](https://github.com/SFML/SFML/pull/1904)
-`sf::Color`がconstexpr classになった。
+`sf::Color`を`constexpr`クラス化。
 
 ### [\#1903](https://github.com/SFML/SFML/pull/1903)
-`sf::Vector2<T>`と`sf::Vector3<T>`がconstexpr classになった。
+`sf::Vector2<T>`と`sf::Vector3<T>`を`constexpr`クラス化。
 
 ### [\#1807](https://github.com/SFML/SFML/pull/1807)
 `sf::RenderStates`に`sf::CoordinateType`を追加。
@@ -387,8 +387,6 @@ uniform initializationと`= default`指定。
 ### [\#2044](https://github.com/SFML/SFML/pull/2044)
 メッセージ出力で`std::quoted()`を使うように変更。
 
-以前は引用符をエスケープしたり閉じるのに一文字くっつけたりと涙ぐましい。
-
 ### [\#2043](https://github.com/SFML/SFML/pull/2043)
 ファイルが見つからなかった場合にその絶対パスを出力する（以前はファイル名のみ）。
 
@@ -399,13 +397,10 @@ uniform initializationと`= default`指定。
 `std::endl`の使い過ぎを修正。
 
 ### [\#1964](https://github.com/SFML/SFML/pull/1964)
-あちこちの引数を`const std::string&`から`std::filesystem::path`に変更。
+パスを扱う引数の型を`const std::string&`から`std::filesystem::path`に変更。
 
 ### [\#1901](https://github.com/SFML/SFML/pull/1901)
 `sf::NonCopyable`を削除して`= delete`で置き換える。
 
 ### [\#1880](https://github.com/SFML/SFML/pull/1880)
 clang-tidyのmodernize-use-autoで洗い出した情報欠落が起きない部分で`auto`を使うように変更。
-
-
-
