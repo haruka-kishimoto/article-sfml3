@@ -160,7 +160,17 @@ if (auto intersection = rect.findIntersection(other_rect); intersection) {
 Unicodeサポートに関するIssue/PRの一覧。
 
 
-## SFML 3.1.0で予定されている変更
+## SFML 3.1.0
+2026年4月16日、[SFML 3.1.0](https://github.com/SFML/SFML/releases/tag/3.1.0)がリリースされた。マイナーバージョンアップではあるものの機能面で大幅なアップデートを含む。主な変更点:
+- テキストレンダリングエンジンの刷新
+  - 複雑なテキストレイアウトや双方向テキストのレンダリングへの対応、グリフレベルの情報の提供、レンダリングのカスタマイズに対応した。
+- ネットワークモジュールにおいてTLS、HTTPS、IPv6、SFTPのサポートおよびDNSクエリ関数群の追加
+- ライブラリの様々な部分でのUnicodeサポートの改善
+- AndroidとiOS向けの様々な改善
+
+新しい機能や依存関係、非推奨化された機能からの移行について、詳しくは[移行ガイド](https://github.com/SFML/SFML/blob/master/migration.md#migration-from-sfml-30-to-sfml-31)を参照。
+
+以下は主なPRのリスト:
 
 ### [\#3675](https://github.com/SFML/SFML/pull/3675)
 FTPの代替としてSFTPのサポートを追加。
